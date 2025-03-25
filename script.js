@@ -49,21 +49,30 @@
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector(".scroll-top");
+  document.addEventListener("DOMContentLoaded", () => {
+    let scrollTop = document.querySelector(".scroll-top");
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100
-        ? scrollTop.classList.add("active")
-        : scrollTop.classList.remove("active");
+    function toggleScrollTop() {
+      if (scrollTop) {
+        window.scrollY > 100
+          ? scrollTop.classList.add("active")
+          : scrollTop.classList.remove("active");
+      }
     }
-  }
-  scrollTop.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+
+    if (scrollTop) {
+      scrollTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      window.addEventListener("scroll", toggleScrollTop);
+    } else {
+      console.error("Elemento .scroll-top não encontrado!");
+    }
   });
 
   window.addEventListener("load", toggleScrollTop);
