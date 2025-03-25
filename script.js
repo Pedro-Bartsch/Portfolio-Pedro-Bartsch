@@ -51,18 +51,18 @@
    */
   document.addEventListener("DOMContentLoaded", () => {
     let scrollTop = document.querySelector(".scroll-top");
-  
+
     if (!scrollTop) {
       console.error("Elemento .scroll-top não encontrado!");
       return; // Interrompe a execução do código
     }
-  
+
     function toggleScrollTop() {
       window.scrollY > 100
         ? scrollTop.classList.add("active")
         : scrollTop.classList.remove("active");
     }
-  
+
     // Adiciona o evento de clique ao botão de scroll
     scrollTop.addEventListener("click", (e) => {
       e.preventDefault();
@@ -71,11 +71,12 @@
         behavior: "smooth",
       });
     });
-  
+
     // Adiciona o evento de rolagem para mostrar/esconder o botão
     window.addEventListener("scroll", toggleScrollTop);
-  window.addEventListener("load", toggleScrollTop);
-  document.addEventListener("scroll", toggleScrollTop);
+    window.addEventListener("load", toggleScrollTop);
+    document.addEventListener("scroll", toggleScrollTop);
+  });
 
   /**
    * Animation on scroll function and init
